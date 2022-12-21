@@ -1,3 +1,0 @@
-[submodule "server-sent-events"]
-	path = server-sent-events
-	url = https://github.com/simoneschioppo/server-sent-events
