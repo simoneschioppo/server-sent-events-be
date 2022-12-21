@@ -1,16 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, MessageEvent } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  
-  getHello(): string {
-    const canISayHello = this._getRandomNumber(1, 10) > 5; 
-    console.log(canISayHello); 
-    if (!canISayHello) return; 
-    return 'Hello World!';
+
+  getExtraction(): MessageEvent {
+    let numberRoulette = this._getRandomNumber(1, 99);
+    if (numberRoulette < 20) return; 
+    return { data: numberRoulette.toString() };
   }
 
-  private  _getRandomNumber(min, max): number {
+  private _getRandomNumber(min, max): number {
     return Math.floor(Math.random() * (max - min) + min);
   }
 }
